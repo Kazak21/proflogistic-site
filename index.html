@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ПрофЛогистик — грузоперевозки фурами и газелями</title>
+  <meta name="description" content="ПрофЛогистик: междугородние и городские грузоперевозки. Собственные фуры и газели. Быстро, безопасно, 24/7." />
+  <style>
+    :root{
+      --sky:#0ea5e9; --sky-700:#0369a1; --emerald:#10b981; --ink:#0f172a; --muted:#64748b;
+      --bg:#ffffff; --bg-soft:#f8fafc; --card:#ffffff; --stroke:#e2e8f0;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    a{color:inherit}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--sky);color:#fff;
+      padding:.75rem 1.1rem;border-radius:14px;border:0;cursor:pointer;font-weight:600;text-decoration:none}
+    .btn:hover{background:var(--sky-700)}
+    .btn-outline{background:#fff;color:var(--sky);border:2px solid var(--sky)}
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--stroke)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav a{font-size:.95rem;color:#0f172a;text-decoration:none;margin-left:18px}
+    .nav a:hover{color:var(--sky)}
+    /* Logo */
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo .text{line-height:1}
+    .logo .title{font-size:1.25rem;font-weight:800}
+    .logo .sub{font-size:.8rem;color:var(--muted)}
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#f0f9ff, #ffffff)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:56px 0}
+    .hero h1{font-size:clamp(28px,4vw,44px);margin:0 0 .5rem 0}
+    .hero p{color:var(--muted);margin:.5rem 0 1.25rem}
+    .hero-card{position:relative;border:1px solid var(--stroke);background:var(--card);border-radius:24px;height:320px;overflow:hidden}
+    .road1,.road2{position:absolute;left:-15%;right:-15%;background:#fff;opacity:.8;border:1px solid var(--stroke)}
+    .road1{height:80px;bottom:40px;transform:rotate(-6deg)}
+    .road2{height:48px;bottom:110px;transform:rotate(-8deg)}
+    /* Sections */
+    section{padding:56px 0}
+    h2{font-size:clamp(22px,3vw,30px);margin:0}
+    .grid{display:grid;gap:16px}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.grid-4{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:1fr}}
+    .card{border:1px solid var(--stroke);background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 20px rgba(2,6,23,.04)}
+    .muted{color:var(--muted)}
+    .stat{display:flex;align-items:center;gap:8px;font-size:.95rem}
+    .pill{display:inline-block;background:#eef6ff;color:#075985;border:1px solid #cfe8ff;padding:.25rem .6rem;border-radius:999px;font-size:.8rem}
+    /* Form */
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form input,.form select,.form textarea{
+      width:100%;padding:.7rem .8rem;border:1px solid var(--stroke);border-radius:12px;background:#fff
+    }
+    .form textarea{min-height:90px;grid-column:span 2}
+    @media (max-width:700px){.form{grid-template-columns:1fr}.form textarea{grid-column:span 1}}
+    footer{border-top:1px solid var(--stroke);padding:28px 0;background:var(--bg-soft);font-size:.95rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <!-- SVG-логотип -->
+        <svg width="42" height="42" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64">
+              <stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#22c55e"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#g1)"/>
+          <path d="M10 42c16-10 28-10 44 0" stroke="white" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+          <g transform="translate(12,16)">
+            <rect x="8" y="14" width="22" height="10" rx="2" fill="#fff"/>
+            <rect x="30" y="17" width="12" height="7" rx="2" fill="#e2f3ff"/>
+            <rect x="9" y="10" width="18" height="9" rx="2" fill="#ffffff" opacity=".95"/>
+            <circle cx="16" cy="27" r="3.2" fill="#0ea5e9"/>
+            <circle cx="34" cy="27" r="3.2" fill="#22c55e"/>
+          </g>
+        </svg>
+        <div class="text">
+          <div class="title">ПрофЛогистик</div>
+          <div class="sub">грузоперевозки • фуры • газели</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Услуги</a>
+        <a href="#fleet">Автопарк</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="btn" href="#order">Заказать</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Надёжные грузоперевозки по России и СНГ</h1>
+        <p>Собственный автопарк: фуры для крупных партий и газели для оперативной городской доставки. Бережно, вовремя, прозрачно.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn" href="#order">Рассчитать и заказать</a>
+          <a class="btn btn-outline" href="#services">Смотреть услуги</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;max-width:540px">
+          <div class="stat">✅ Страхование груза</div>
+          <div class="stat">⏱️ Подача 24/7</div>
+          <div class="stat">📍 Отслеживание маршрута</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="road1"></div>
+        <div class="road2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Услуги</h2>
+      <div class="grid grid-4" style="margin-top:16px">
+        <div class="card">
+          <strong>Междугородние перевозки фурами</strong>
+          <p class="muted">Паллетные и крупногабаритные грузы по всей России и в страны СНГ.</p>
+        </div>
+        <div class="card">
+          <strong>Городская доставка на газелях</strong>
+          <p class="muted">Подача в течение дня, развозка по точкам, оптимальные тарифы.</p>
+        </div>
+        <div class="card">
+          <strong>Хрупкие и ценные грузы</strong>
+          <p class="muted">Упаковка, фиксация, экспедирование и контроль сохранности.</p>
+        </div>
+        <div class="card">
+          <strong>Срочная доставка 24/7</strong>
+          <p class="muted">Работаем ночью и в выходные под ваши дедлайны.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet -->
+  <section id="fleet" style="background:var(--bg-soft)">
+    <div class="container">
+      <h2>Наш автопарк</h2>
+      <p class="muted" style="margin-top:6px">Собственные машины в отличном состоянии. Подберём кузов под ваш груз.</p>
+      <div class="grid grid-3" style="margin-top:16px">
+        <div class="card">
+          <div class="pill">Фура (еврофура)</div>
+          <ul>
+            <li>Грузоподъёмность: <b>до 20 т</b></li>
+            <li>Объём: <b>82–92 м³</b></li>
+            <li>Опции: тент/реф</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pill">Газель</div>
+          <ul>
+            <li>Грузоподъёмность: <b>до 1.5 т</b></li>
+            <li>Объём: <b>10–17 м³</b></li>
+            <li>Идеально для города</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pill">Изотерм / Реф</div>
+          <ul>
+            <li>Грузоподъёмность: <b>до 5 т</b></li>
+            <li>Температурный режим</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator (черновой) -->
+  <section id="calc">
+    <div class="container">
+      <h2>Калькулятор стоимости (черновой)</h2>
+      <p class="muted" style="margin-top:6px">Введите примерные данные — получите ориентировочную цену.</p>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+        <div class="card">
+          <label>Дистанция, км
+            <input id="km" type="range" min="10" max="3000" value="300" oninput="outKm.textContent=this.value+' км'">
+          </label>
+          <div id="outKm" style="margin-top:6px;font-weight:600">300 км</div>
+          <label style="display:block;margin-top:10px">Вес, кг
+            <input id="kg" type="range" min="10" max="20000" value="1000" step="10" oninput="outKg.textContent=this.value+' кг'">
+          </label>
+          <div id="outKg" style="margin-top:6px;font-weight:600">1000 кг</div>
+          <label style="display:block;margin-top:10px">Тип машины
+            <select id="vehicle">
+              <option value="gazelle">Газель</option>
+              <option value="truck">Фура</option>
+            </select>
+          </label>
+        </div>
+        <div class="card" style="background:linear-gradient(140deg,#f0f9ff,#ecfeff)">
+          <div class="muted">Ориентировочная стоимость</div>
+          <div id="price" style="font-size:36px;font-weight:800;margin-top:8px">— ₽</div>
+          <p class="muted">Итог зависит от маршрута, габаритов, ПРР и срочности.</p>
+          <a class="btn" href="#order" style="margin-top:8px">Оставить заявку</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts & Form -->
+  <section id="contacts" style="background:var(--bg-soft)">
+    <div class="container">
+      <h2>Контакты</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+        <div class="card">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li>📞 +7 (900) 000-00-00</li>
+            <li>✉️ info@proflogistic.ru</li>
+            <li>📍 Москва, пр-т Логистический, 1</li>
+          </ul>
+          <p class="muted" style="margin-top:8px">Работаем по всей России и СНГ. Документы предоставляем.</p>
+        </div>
+        <div id="order" class="card">
+          <h3 style="margin:0 0 8px 0">Онлайн-заявка</h3>
+          <form class="form" onsubmit="submitForm(event)">
+            <input placeholder="Откуда" required>
+            <input placeholder="Куда" required>
+            <input type="number" placeholder="Вес (кг)" min="1" required>
+            <select>
+              <option>Газель</option>
+              <option>Фура</option>
+            </select>
+            <textarea placeholder="Комментарий (необязательно)"></textarea>
+            <button class="btn" type="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> ПрофЛогистик</div>
+      <div class="muted">Сделано для демонстрации на GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    // простой калькулятор
+    const km = document.getElementById('km');
+    const kg = document.getElementById('kg');
+    const vehicle = document.getElementById('vehicle');
+    const priceEl = document.getElementById('price');
+    function calc(){
+      const kmRate = vehicle.value === 'truck' ? 65 : 40;   // ₽/км (пример)
+      const kgRate = vehicle.value === 'truck' ? 3.0 : 2.0; // коэффициент (пример)
+      const base = Number(km.value) * kmRate;
+      const weightAdj = (Number(kg.value)/100) * kgRate;
+      const total = Math.max(2500, Math.round(base + weightAdj));
+      priceEl.textContent = total.toLocaleString('ru-RU') + ' ₽';
+    }
+    km.addEventListener('input', calc);
+    kg.addEventListener('input', calc);
+    vehicle.addEventListener('change', calc);
+    calc();
+
+    // форма
+    function submitForm(e){
+      e.preventDefault();
+      alert('Заявка отправлена! Мы свяжемся с вами.');
+      e.target.reset();
+    }
+    // год в футере
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
